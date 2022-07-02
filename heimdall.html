@@ -2,7 +2,7 @@
 title: Heimdall
 description: 
 published: 1
-date: 2022-07-02T02:23:57.294Z
+date: 2022-07-02T02:33:42.188Z
 tags: 
 editor: ckeditor
 dateCreated: 2022-07-02T01:19:05.513Z
@@ -27,17 +27,35 @@ curl --silent -o ${RELEASE}.tar.gz -L "https://github.com/linuxserver/Heimdall/a
 <h3>Step 3 - Create Heimdall systemd service</h3>
 <p>Create heimdall systemd service</p>
 <pre><code class="language-plaintext">sudo nano /etc/systemd/system/heimdall.service</code></pre>
+<p>Add the following content to the file</p>
+<pre><code class="language-plaintext">[Unit]
+Description=Heimdall
+After=network.target
+
+[Service]
+Restart=always
+RestartSec=5
+Type=simple
+User=lgtm
+Group=lgtm
+WorkingDirectory=/home/lgtm/Heimdall-2.2.2
+ExecStart="/usr/bin/php" artisan serve --port 7889 --host 0.0.0.0
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target</code></pre>
 <p>&nbsp;</p>
-<h3>Step 4 -&nbsp;</h3>
+<h3>Step 4 - Enable and start the Heimdall service</h3>
+<p>Enable to service to start on boot.</p>
+<pre><code class="language-plaintext">sudo systemctl enable  heimdall.service</code></pre>
+<p>Start the Heimdall service</p>
+<pre><code class="language-plaintext">sudo systemctl start heimdall.service</code></pre>
 <p>&nbsp;</p>
+<h3>Step 5 - Check to see if service had started&nbsp;</h3>
+<p>Check the status of the heimdall service and see if it success fully started</p>
+<pre><code class="language-plaintext">sudo systemctl status heimdall.service</code></pre>
 <p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<h3>Step 5 -&nbsp;</h3>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+<h3>Step 6 - Visit your Heimdall dashboard</h3>
+<p>Check out your dashboard at your localhost address or use your machines hostname/ip</p>
+<pre><code class="language-plaintext">http://127.0.0.1:7889/</code></pre>
 <p>&nbsp;</p>
