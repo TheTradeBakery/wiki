@@ -2,19 +2,42 @@
 title: Heimdall
 description: 
 published: 1
-date: 2022-07-02T01:19:05.513Z
+date: 2022-07-02T02:23:57.294Z
 tags: 
 editor: ckeditor
 dateCreated: 2022-07-02T01:19:05.513Z
 -->
 
-<h1>Heimdall</h1>
+<figure class="image"><img src="https://camo.githubusercontent.com/17936a339a24134131b4c797d379adae8efe409157093d2a1e73d7930416f098/68747470733a2f2f692e696d6775722e636f6d2f697556387733792e706e67" alt="Heimdall_Banner"></figure>
 <h2>About</h2>
+<p>Heimdall Application Dashboard is a dashboard for all your web applications.</p>
+<figure class="image"><img src="https://camo.githubusercontent.com/bcfd4f74c93b25bea7b14eacbafd649206bf754a3d4b596329968f0ee569cf3c/68747470733a2f2f692e696d6775722e636f6d2f4d72433451704e2e676966" alt="Heimdall demo animation"></figure>
 <h2>Install</h2>
 <h3>Step 1 - Download Heimdall from GitHub</h3>
+<p>Download Heimdall from GitHub</p>
+<pre><code class="language-plaintext">RELEASE=$(curl -sX GET "https://api.github.com/repos/linuxserver/Heimdall/releases/latest" | awk '/tag_name/{print $4;exit}' FS='[""]'); echo $RELEASE &amp;&amp;\
+curl --silent -o ${RELEASE}.tar.gz -L "https://github.com/linuxserver/Heimdall/archive/${RELEASE}.tar.gz"</code></pre>
+<p>Unzip the tar</p>
+<pre><code class="language-plaintext">tar xvzf 2.2.2.tar.gz</code></pre>
+<p>&nbsp;</p>
 <h3>Step 2 - Install PHP modules</h3>
-<h3>Step 3 - Run Heimdall Dashboard with php artisan serve</h3>
-<h3>Step 4 -&nbsp;</h3>
-<h3>Step 5 -&nbsp;</h3>
-<h3><br>&nbsp;</h3>
+<p>Install PHP models&nbsp;</p>
 <pre><code class="language-plaintext">sudo apt install php-sqlite3 php-zip</code></pre>
+<p>&nbsp;</p>
+<h3>Step 3 - Create Heimdall systemd service</h3>
+<p>Create heimdall systemd service</p>
+<pre><code class="language-plaintext">sudo nano /etc/systemd/system/heimdall.service</code></pre>
+<p>&nbsp;</p>
+<h3>Step 4 -&nbsp;</h3>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3>Step 5 -&nbsp;</h3>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
